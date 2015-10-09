@@ -1,0 +1,37 @@
+﻿<html>
+<head>
+<script type="text/javascript">
+function startTime()
+{
+function checkTime(i)
+{if (i<10) 
+{
+i="0" + i
+} 
+return i
+}
+var today=new Date()
+var y=today.getFullYear()
+var mo=today.getMonth()+1
+var d=today.getDay()+1
+var h=today.getHours()
+var m=today.getMinutes()
+var s=today.getSeconds()
+
+mo=checkTime(mo)
+d=checkTime(d)
+m=checkTime(m)
+s=checkTime(s)
+var time=y+"-"+mo+"-"+d+"-"+h+":"+m+":"+s
+
+document.getElementById('title').innerHTML=time
+document.getElementById('img').src="images/"+(s-(parseInt(s/10)*10))+".jpg"
+t=setTimeout('startTime()',500)
+}
+</script>
+<title id=title></title>
+</head>
+<body onload="startTime()">
+<img id=img></img>
+</body>
+</html>
